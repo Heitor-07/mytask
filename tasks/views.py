@@ -13,5 +13,11 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+def tarefa(request, pk):
+    tarf = Tarefa.objects.get(id=pk)
+    context = {
+        'tarefa': tarf
+    }
+    return render(request, 'tarefa.html', context)
 
 

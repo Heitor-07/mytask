@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+    <!-- Imagens -->
+    <link rel="stylesheet" type="text/css" href="{% static 'images/livro_caneta.png' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Font awesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+
+    <title>Tarefa</title>
+</head>
+<body>
+    <div class="body">
+        <div class="container mt-3 bg-light">
+
+            <nav class="menu d-flex justify-content-between align-items-center bg-light p-3 rounded">
+                <a href="#" class="display-4"><span class="text-secondary">My</span>Task</a>
+
+                <div class="btn-sair p-2 text-white">
+                    <button class="btn btn-primary">Get out<i class="fas fa-door-open ml-1"></i></button>
+                </div>
+            </nav>
+
+            <hr>
+
+            <form class="w-50">
+                <div class="form-group">
+                    <label>Tarefa: </label>
+                    <input type="text" class="form-control" name="tarefa" value="{{ tarefa.nome_tarefa }}">
+                </div>
+                <div class="form-group">
+                    <label>Dia: </label>
+                    <input type="text" class="form-control" name="data" value="{{ tarefa.dia }}">
+                </div>
+                <div class="form-group">
+                    <label>Categoria: </label>
+                    <input type="text" class="form-control" name="categoria" value="{{ tarefa.categoria }}">
+                </div>
+                <div>
+                <label>Descrição:</label>
+                    <textarea class="form-control">{{ tarefa.descricao }}</textarea>
+                </div>
+            </form>
+
+
+                <a class="btn btn-primary mt-3 mb-3" href="{% url 'home' %}">Voltar</a>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

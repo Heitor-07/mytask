@@ -16,12 +16,10 @@
     <!-- Font awesome -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 
-
-
     <title>Home</title>
 </head>
 <body>
-
+    <div class="body">
         <div class="container mt-3 bg-light">
 
             <nav class="menu d-flex justify-content-between align-items-center bg-light p-3 rounded">
@@ -86,7 +84,7 @@
                 <tbody>
                     {% for taf in tarefas %}
                     <tr>
-                        <td><a href="#">{{ taf.nome_tarefa }}</a></td>
+                        <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa }}</a></td>
                         <td>{{ taf.dia }}</td>
                         <td>{{ taf.descricao }}</td>
                         <td>{{ taf.categoria }}</td>
@@ -98,6 +96,6 @@
             <br>
 
         </div>
-
+    </div>
 </body>
 </html>
