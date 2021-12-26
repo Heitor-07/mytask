@@ -32,11 +32,13 @@
              <form method="post" class="w-50">
 
                 {% csrf_token %}
-
-                {{ tarefa.as_p }}
+                <table>
+                {{ tarefa.as_table }}
+                </table>
 
                 <a type="submit" class="btn btn-primary mt-3 mb-3" href="{% url 'home' %}">Voltar</a>
                 <button type="submit" class="btn btn-secondary mt-3 mb-3">Salvar alteração</button>
+                <a class="btn btn-secondary mt-3 mb-3" href="{% url 'delete' del_tarefa.id %}">Deletar</a>
 
             </form>
 

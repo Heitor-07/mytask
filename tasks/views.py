@@ -25,9 +25,16 @@ def tarefa(request, pk):
 
     context = {
         'tarefa': form,
+        'del_tarefa': tarf,
     }
 
     return render(request, 'tarefa.html', context)
+
+
+def delete(request, pk):
+    del_tarefa = Tarefa.objects.get(id=pk)
+    del_tarefa.delete()
+    return redirect('home')
 
 
 def nova_tarefa(request):
