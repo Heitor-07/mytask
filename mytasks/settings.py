@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(%so^j$55c=$ix2qz_laq4)muy&idp_a4ob6&%a=r&0$&d!ha7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Enquanto estiver em produção, True, depois de pronto False
+# Enquanto estiver em produção, True, depois de pronto False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # Enquanto Debug estiver True, fica vazio, depois o endereço do site.
+# Enquanto Debug estiver True, fica vazio, depois o endereço do site.
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -112,12 +114,10 @@ USE_I18N = True  # Oferecer o sistema em multiplos idiomas
 
 USE_TZ = True
 
-DATE_INPUT_FORMATS = ['%d/%m/%Y']
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'  # Arquivos staticos como css, javascripts e etc.
+STATIC_URL = 'mytasks/tasks/static/'  # Arquivos staticos como css, javascripts e etc.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Usando durante a produção
 
 # Default primary key field type

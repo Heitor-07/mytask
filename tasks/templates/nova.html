@@ -29,14 +29,14 @@
 
             <hr>
 
-             <form method="post" class="w-50">
+            <form class="w-50" method="post">
 
                 {% csrf_token %}
 
-                {{ tarefa.as_p }}
+                {{ form.as_p }}
 
                 <a type="submit" class="btn btn-primary mt-3 mb-3" href="{% url 'home' %}">Voltar</a>
-                <button type="submit" class="btn btn-secondary mt-3 mb-3">Salvar alteração</button>
+                <button type="submit" class="btn btn-secondary mt-3 mb-3">Salvar</button>
 
             </form>
 
