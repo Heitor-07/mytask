@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from .form import TarefaForm
-from .models import Tarefa, Categoria
+from django.contrib.auth.decorators import login_required
+from .models import Tarefa, Categoria, Usuario
+from .form import UsuarioForm
 import datetime
 # Create your views here. Funções que serão chamadas nas rotas
 
 
+@login_required
 def home(request):
     tarefas = Tarefa.objects.all()
     categorias = Categoria.objects.all()
@@ -17,6 +20,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+@login_required
 def filtrar(request, pk):
     filtros = Tarefa.objects.filter(categoria=pk)
     categorias = Categoria.objects.all()
@@ -29,6 +33,7 @@ def filtrar(request, pk):
     return render(request, 'filtro.html', context)
 
 
+@login_required
 def tarefa(request, pk):
     tarf = Tarefa.objects.get(id=pk)
     form = TarefaForm(request.POST or None, instance=tarf)
@@ -45,12 +50,14 @@ def tarefa(request, pk):
     return render(request, 'tarefa.html', context)
 
 
+@login_required
 def delete(request, pk):
     del_tarefa = Tarefa.objects.get(id=pk)
     del_tarefa.delete()
     return redirect('home')
 
 
+@login_required
 def nova_tarefa(request):
     data = {}
     form = TarefaForm(request.POST or None)
@@ -61,6 +68,22 @@ def nova_tarefa(request):
 
     data['form'] = form
     return render(request, 'nova.html', data)
+
+
+@login_required
+def usuario(request):
+
+    user = UsuarioForm(request.POST or None)
+
+    if user.is_valid():
+        user.save()
+        return redirect('home')
+
+    context = {
+        'users': user,
+    }
+
+    return render(request, 'cadastro_user.html', context)
 
 
 

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import home, tarefa, nova_tarefa, delete, filtrar
+from .views import home, tarefa, nova_tarefa, delete, filtrar, usuario
 
 urlpatterns = [
     path('', home, name='home'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('delete/<int:pk>', delete, name='delete'),
     path('filtro/<str:pk>', filtrar, name='filtro'),
     path('nova', nova_tarefa, name='nova'),
+    path('usuario', usuario, name='cadastro_user'),
 ]
 

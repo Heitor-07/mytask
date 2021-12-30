@@ -13,7 +13,7 @@
     <!-- Font awesome -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
 
-    <title>Tarefa</title>
+    <title>Cadastro de usuário</title>
 </head>
 <body>
     <div class="body">
@@ -23,9 +23,7 @@
                 <a href="#" class="display-4"><span class="text-secondary">My</span>Task</a>
 
                 <div class="btn-sair p-2 text-white">
-                    <div class="p-2 text-white">
-                        <a href="/accounts/logout" class="btn btn-primary">Sair<i class="fas fa-door-open ml-1"></i></a>"
-                    </div>
+                    <button class="btn btn-primary">Get out<i class="fas fa-door-open ml-1"></i></button>
                 </div>
             </nav>
 
@@ -35,7 +33,7 @@
 
                 {% csrf_token %}
                 <table>
-                {{ form.as_table }}
+                {{ users.as_table }}
                 </table>
                 <a type="submit" class="btn btn-primary mt-3 mb-3" href="{% url 'home' %}">Voltar</a>
                 <button type="submit" class="btn btn-secondary mt-3 mb-3">Salvar</button>
@@ -44,6 +42,9 @@
 
         </div>
     </div>
+
+</body>
+</html>y>
 
 </body>
 </html>
