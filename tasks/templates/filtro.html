@@ -31,25 +31,30 @@
             <hr>
 
             <!-- Botões da categorias -->
-            <div class="d-flex justify-content-between p-3">
 
-                 <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center"><i class="fas fa-tasks display-1"></i></th>
-                            <th class="text-center"><i class="fas fa-home display-1"></i></th>
-                            <th class="text-center"><i class="fas fa-briefcase display-1"></i></th>
-                            <th class="text-center"><i class="fas fa-graduation-cap display-1"></i></th>
-                            <th class="text-center"><i class="fas fa-dollar-sign display-1"></i></th>
-                        </tr>
-                        <tr>
-                            <th class="text-center"><a href="{% url 'home' %}" > Todas </a></th>
+                    <div>
+
+                <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <div id="categoria-image" class="d-flex justify-content-between pr-2">
+                            <a class="text-center"><i class="fas fa-tasks display-1"></i></a>
+                            <a class="text-center"><i class="fas fa-home display-1"></i></a>
+                            <a class="text-center"><i class="fas fa-briefcase display-1"></i></a>
+                            <a class="text-center"><i class="fas fa-graduation-cap display-1"></i></a>
+                            <a class="text-center"><i class="fas fa-dollar-sign display-1"></i></a>
+                        </div>
+                        <div class="d-flex justify-content-between pl-4">
+                            <a class="text-center text-light" href="{% url 'home' %}" > Todas  </a>
                             {% for catg in categoria %}
-                            <th class="text-center"><a href="{% url 'filtro' catg.id %}"> {{ catg.categoria }} </a></th>
+                            <a class="text-light" href="{% url 'filtro' catg.id %}">{{ catg.categoria }} </a>
                             {% endfor %}
-                        </tr>
-                    </thead>
-                </table>
+                        </div>
+                    </div>
+                </nav>
 
             </div>
             <!-- Listar tarefas -->
@@ -57,13 +62,6 @@
 
                 <ul class="nav nav-tabs nav-pills">
 
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">Tarefas em andamento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">Tarefas concluídas</a>
-                    </li>
                     <li class="nav-item">
                         <a href="{% url 'nova' %}" class="nav-link "><i class="fas fa-plus-circle mr-2"></i>Adicionar</a>
                     </li>
@@ -84,14 +82,23 @@
                 <tbody>
 
                         {% for filtro in filtre %}
-
-                        <tr>
-                            <td>{{ filtro.nome_tarefa }}</td>
-                            <td>{{ filtro.dia }}</td>
-                            <td>{{ filtro.descricao }}</td>
-                            <td>{{ filtro.categoria }}</td>
-                        </tr>
-
+                            {% if filtro.status == 'Concluída' %}
+                                <tr style="text-decoration: line-through">
+                                    <td><a href="{% url 'tarefa' filtro.id %}">{{ filtro.nome_tarefa }}</a></td>
+                                    <td>{{ filtro.dia }}</td>
+                                    <td>{{ filtro.descricao }}</td>
+                                    <td>{{ filtro.categoria }}</td>
+                                    <td>{{ filtro.status }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td><a href="{% url 'tarefa' filtro.id %}">{{ filtro.nome_tarefa }}</a></td>
+                                    <td>{{ filtro.dia }}</td>
+                                    <td>{{ filtro.descricao }}</td>
+                                    <td>{{ filtro.categoria }}</td>
+                                    <td>{{ filtro.status }}</td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}
 
                 </tbody>

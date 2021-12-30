@@ -5,4 +5,4 @@ from .models import Tarefa
 class TarefaForm(ModelForm):
     class Meta:
         model = Tarefa
-        fields = ['nome_tarefa', 'dia', 'descricao', 'categoria']
+        fields = ['nome_tarefa', 'dia', 'descricao', 'categoria', 'status']
