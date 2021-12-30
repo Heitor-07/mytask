@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [  # Faz verificões especificas sobre sobre as requisições para o servidor
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
