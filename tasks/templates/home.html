@@ -26,22 +26,16 @@
 <body>
     <div>
         <div class="container mt-3 bg-light">
-
             <nav class="menu d-flex justify-content-between align-items-center bg-light p-3 rounded">
                 <a href="#" class="display-4"><span class="text-secondary">My</span>Task</a>
-
             {% if user.is_authenticated %}
                 <div class="p-2 text-white">
                     <a href="/accounts/logout" class="btn btn-primary">Sair<i class="fas fa-door-open ml-1"></i></a>"
                 </div>
             </nav>
-
             <hr>
-
             <div>
-
                 <nav class="navbar navbar-expand-md bg-primary navbar-dark">
-
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -61,22 +55,16 @@
                         </div>
                     </div>
                 </nav>
-
             </div>
             <!-- Menu da categorias -->
             <!-- Listar tarefas -->
-
             <div>
-
                 <ul class="nav nav-tabs nav-pills">
                     <li class="nav-item">
                         <a href="{% url 'nova' %}" class="nav-link "><i class="fas fa-plus-circle mr-2"></i>Adicionar</a>
                     </li>
-
                 </ul>
-
             </div>
-
             <table class="table table-striped">
                 <thead>
                     <tr class="text-primary">
@@ -88,8 +76,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
-
                     {% for taf in tarefas %}
                         {% if taf.status == 'Concluída' %}
                             <tr style="text-decoration: line-through">
@@ -115,38 +101,24 @@
                                 <td>{{ taf.categoria }}</td>
                                 <td class="bg-warning">{{ taf.status }}</td>
                             </tr>
-
                         {% endif %}
-
                     {% endfor %}
                 {% else %}
                             <form class="w-50" method="post">
-
                             {% csrf_token %}
                                 <table>
                                     {{ form.as_table }}
                                 </table>
-
-
                             </form>
-
-                    <a href="/accounts/login" type="submit" class="btn btn-secondary mt-3 mb-3">Entrar</a>
+                    <div class="d-flex">
+                        <a href="/accounts/login" type="submit" class="btn btn-secondary mt-3 mb-3">Entrar</a>
+                        <a href="/accounts/signup" type="submit" class="btn btn-primary mt-3 mb-3">Cadastrar</a>
+                    </div>
                 {% endif %}
-
                 </tbody>
             </table>
             <br>
-
-
-
-
         </div>
-
     </div>
-
 </body>
-
- <script src="{% static 'js/scripts.js' %}"></script>
-
-
 </html>

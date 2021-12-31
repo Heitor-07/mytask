@@ -3,6 +3,8 @@ from .form import TarefaForm
 from django.contrib.auth.decorators import login_required
 from .models import Tarefa, Categoria, Usuario
 from .form import UsuarioForm
+from django.contrib.auth.models import User
+from django.views.decorators.http import require_POST
 import datetime
 # Create your views here. Funções que serão chamadas nas rotas
 
@@ -70,20 +72,19 @@ def nova_tarefa(request):
     return render(request, 'nova.html', data)
 
 
-@login_required
 def usuario(request):
-
     user = UsuarioForm(request.POST or None)
 
     if user.is_valid():
         user.save()
-        return redirect('home')
+        return render('home.html')
 
     context = {
         'users': user,
     }
 
     return render(request, 'cadastro_user.html', context)
+
 
 
 
