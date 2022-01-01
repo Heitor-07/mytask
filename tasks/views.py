@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from .form import TarefaForm
 from django.contrib.auth.decorators import login_required
-from .models import Tarefa, Categoria, Usuario
-from .form import UsuarioForm
-from django.contrib.auth.models import User
-from django.views.decorators.http import require_POST
-import datetime
+from .models import Tarefa, Categoria
+from django.views.generic import TemplateView
 # Create your views here. Funções que serão chamadas nas rotas
 
 
@@ -38,14 +35,14 @@ def filtrar(request, pk):
 @login_required
 def tarefa(request, pk):
     tarf = Tarefa.objects.get(id=pk)
-    form = TarefaForm(request.POST or None, instance=tarf)
+    forms = TarefaForm(request.POST or None, instance=tarf)
 
-    if form.is_valid():
-        form.save()
+    if forms.is_valid():
+        forms.save()
         return redirect('home')
 
     context = {
-        'tarefa': form,
+        'tarefa': forms,
         'del_tarefa': tarf,
     }
 
@@ -62,29 +59,13 @@ def delete(request, pk):
 @login_required
 def nova_tarefa(request):
     data = {}
-    form = TarefaForm(request.POST or None)
+    forms = TarefaForm(request.POST or None)
 
-    if form.is_valid():
-        form.save()
+    if forms.is_valid():
+        forms.save()
         return redirect('home')
 
-    data['form'] = form
+    data['form'] = forms
     return render(request, 'nova.html', data)
-
-
-def usuario(request):
-    user = UsuarioForm(request.POST or None)
-
-    if user.is_valid():
-        user.save()
-        return render('home.html')
-
-    context = {
-        'users': user,
-    }
-
-    return render(request, 'cadastro_user.html', context)
-
-
 
 
