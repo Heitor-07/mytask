@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView
 from .form import TarefaForm
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+from .form import UsuarioForm
 from .models import Tarefa, Categoria
 
 # Create your views here. Funções que serão chamadas nas rotas
@@ -17,6 +21,12 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
+
+
+class UsuarioCreate(CreateView):
+    template_name = "form.html"
+    form_class = UsuarioForm
+    success_url = reverse_lazy('login')
 
 
 @login_required

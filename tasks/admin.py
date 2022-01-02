@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Tarefa, Usuario, Categoria
+from .models import Tarefa, Categoria
 
 
 class TarefaAdmin(admin.ModelAdmin):
@@ -15,7 +15,7 @@ class UsuarioAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria)
 admin.site.register(Tarefa, TarefaAdmin)
-admin.site.register(Usuario, UsuarioAdmin)
+
 
 
 

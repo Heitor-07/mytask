@@ -32,12 +32,3 @@ class Tarefa(models.Model):
         return self.nome_tarefa
 
 
-class Usuario(models.Model):
-    nome_usuario = models.CharField('Nome', max_length=100)
-    email = models.EmailField('E-mail', max_length=100)
-    senha = models.CharField('Senha', max_length=16)
-
-    def __str__(self):
-        return self.nome_usuario
-
-

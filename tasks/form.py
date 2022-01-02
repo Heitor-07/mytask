@@ -1,5 +1,8 @@
 from django.forms import ModelForm
-from .models import Tarefa, Usuario
+from .models import Tarefa
+from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
 
 class TarefaForm(ModelForm):
@@ -8,7 +11,9 @@ class TarefaForm(ModelForm):
         fields = ['nome_tarefa', 'dia', 'descricao', 'categoria', 'status']
 
 
-class UsuarioForm(ModelForm):
+class UsuarioForm(UserCreationForm):
+    email = forms.EmailField(max_length=100)
+
     class Meta:
-        model = Usuario
-        fields = ['nome_usuario', 'email', 'senha']
+        model = User
+        fields = ['username', 'email']
