@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .form import TarefaForm
 from django.contrib.auth.decorators import login_required
 from .models import Tarefa, Categoria
-from django.views.generic import TemplateView
+
 # Create your views here. Funções que serão chamadas nas rotas
 
 
