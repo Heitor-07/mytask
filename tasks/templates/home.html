@@ -109,7 +109,7 @@
                             <form class="w-50" method="post">
                                     {% csrf_token %}
                                 <table>
-                                    {{ form|crispy }}
+                                    {{ form.as_table }}
                                 </table>
                             </form>
                     <div class="d-flex">
