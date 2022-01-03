@@ -6,7 +6,7 @@ from .models import Tarefa, Categoria
 
 
 class TarefaAdmin(admin.ModelAdmin):
-    list_display = ('nome_tarefa', 'dia', 'descricao', 'categoria')
+    list_display = ('nome_tarefa', 'dia', 'descricao', 'categoria', 'usuario')
 
 
 class UsuarioAdmin(admin.ModelAdmin):

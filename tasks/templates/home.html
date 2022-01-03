@@ -30,6 +30,13 @@
             <nav class="menu d-flex justify-content-between align-items-center bg-light p-3 rounded">
                 <a href="#" class="display-4 logo"><span class="text-secondary">My</span>Task</a>
             {% if user.is_authenticated %}
+                <div>
+                    {% if user.is_authenticated %}
+                        <p class="display-5 text-capitalize">Bem-vindo, {{ user.username }}</p>
+                    {% else %}
+                        <p>Welcome, new user. Please log in.</p>
+                    {% endif %}
+                </div>
                 <div class="p-2 text-white">
                     <a href="/accounts/logout" class="btn btn-primary">Sair<i class="fas fa-door-open ml-1"></i></a>"
                 </div>
@@ -78,33 +85,33 @@
                 </thead>
                 <tbody>
                     {% for taf in tarefas %}
-                        {% if taf.status == 'Concluída' %}
-                            <tr style="text-decoration: line-through">
-                                <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
-                                <td>{{ taf.dia }}</td>
-                                <td>{{ taf.descricao }}</td>
-                                <td>{{ taf.categoria }}</td>
-                                <td>{{ taf.status }}</td>
-                            </tr>
-                        {% elif taf.status == 'Adiada' %}
-                            <tr>
-                                <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
-                                <td>{{ taf.dia }}</td>
-                                <td>{{ taf.descricao }}</td>
-                                <td>{{ taf.categoria }}</td>
-                                <td class="bg-danger">{{ taf.status }}</td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
-                                <td>{{ taf.dia }}</td>
-                                <td>{{ taf.descricao }}</td>
-                                <td>{{ taf.categoria }}</td>
-                                <td class="bg-warning">{{ taf.status }}</td>
-                            </tr>
-                        {% endif %}
+                            {% if taf.status == 'Concluída' %}
+                                <tr style="text-decoration: line-through">
+                                    <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
+                                    <td>{{ taf.dia }}</td>
+                                    <td>{{ taf.descricao }}</td>
+                                    <td>{{ taf.categoria }}</td>
+                                    <td>{{ taf.status }}</td>
+                                </tr>
+                            {% elif taf.status == 'Adiada' %}
+                                <tr>
+                                    <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
+                                    <td>{{ taf.dia }}</td>
+                                    <td>{{ taf.descricao }}</td>
+                                    <td>{{ taf.categoria }}</td>
+                                    <td class="bg-danger">{{ taf.status }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td><a href="{% url 'tarefa' taf.id %}">{{ taf.nome_tarefa}}</a></td>
+                                    <td>{{ taf.dia }}</td>
+                                    <td>{{ taf.descricao }}</td>
+                                    <td>{{ taf.categoria }}</td>
+                                    <td class="bg-warning">{{ taf.status }}</td>
+                                </tr>
+                            {% endif %}
                     {% endfor %}
-                {% else %}
+                    {% else %}
                             <form class="w-50" method="post">
                                     {% csrf_token %}
                                 <table>

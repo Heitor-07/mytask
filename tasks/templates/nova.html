@@ -4,8 +4,19 @@
 <head>
     <meta charset="UTF-8">
 
+    <script>
+
+        function cadastrado(){
+            window.alert("Cadastrado com sucesso!!!")
+        }
+
+    </script>
+
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+    <!-- JavaScripts personalizado -->
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
@@ -31,7 +42,9 @@
 
             <hr>
 
-            <form class="w-50" method="post">
+            <p id="confirmacao"></p>
+
+            <form class="w-50" method="post" onsubmit="cadastrado();">
 
                 {% csrf_token %}
                 <table>

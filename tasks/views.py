@@ -3,7 +3,6 @@ from django.views.generic import CreateView
 from .form import TarefaForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from django.contrib.auth.models import User
 from .form import UsuarioForm
 from .models import Tarefa, Categoria
 
@@ -12,7 +11,7 @@ from .models import Tarefa, Categoria
 
 @login_required
 def home(request):
-    tarefas = Tarefa.objects.all()
+    tarefas = Tarefa.objects.filter(usuario=request.user)
     categorias = Categoria.objects.all()
 
     context = {
@@ -71,11 +70,11 @@ def nova_tarefa(request):
     data = {}
     forms = TarefaForm(request.POST or None)
 
+    forms.instance.usuario = request.user
+
     if forms.is_valid():
         forms.save()
         return redirect('home')
 
     data['form'] = forms
     return render(request, 'nova.html', data)
-
-

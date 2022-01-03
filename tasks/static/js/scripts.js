@@ -1,4 +1,4 @@
-function checar(){
-    document.getElementById("concluir").style.color = "red";
+function cadastrado(){
+    window.alert('Confirmado');
 }
 
