@@ -1,4 +1,9 @@
 function cadastrado(){
-    window.alert('Confirmado');
+    window.alert('Cadastro confirmado!');
 }
+
+function alteracao(){
+    window.alert('Alteração salva!');
+}
+
 

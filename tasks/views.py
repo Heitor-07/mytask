@@ -30,7 +30,7 @@ class UsuarioCreate(CreateView):
 
 @login_required
 def filtrar(request, pk):
-    filtros = Tarefa.objects.filter(categoria=pk)
+    filtros = Tarefa.objects.filter(categoria=pk).filter(usuario=request.user)
     categorias = Categoria.objects.all()
 
     context = {

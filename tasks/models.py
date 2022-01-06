@@ -1,3 +1,4 @@
+import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -21,11 +22,15 @@ STATUS_CHOICES = (
     ("Adiada", "Adiada"),
 )
 
+DATA_CHOISES = (
+    ('%m/%d/%Y')
+)
+
 
 class Tarefa(models.Model, LoginRequiredMixin, CreateView):
     nome_tarefa = models.CharField('Tarefa', max_length=100)
     dia = models.DateField('Dia')
-    descricao = models.CharField('Descrição', max_length=500)
+    descricao = models.TextField('Descrição', max_length=500)
     categoria = models.ForeignKey(Categoria, null=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="Pendente")
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
