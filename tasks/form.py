@@ -11,7 +11,6 @@ class TarefaForm(ModelForm):
         fields = ['nome_tarefa', 'dia', 'descricao', 'categoria', 'status']
 
 
-
 class UsuarioForm(UserCreationForm):
     email = forms.EmailField(max_length=100)
 
