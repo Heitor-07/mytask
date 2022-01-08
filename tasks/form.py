@@ -6,6 +6,17 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class TarefaForm(ModelForm):
+
+    dia = forms.DateField(
+        label='Data',
+        widget=forms.DateInput(
+            format='%Y-%m-%d',
+            attrs={
+                'type': 'date',
+            }),
+        input_formats=('%Y-%m-%d',),
+    )
+
     class Meta:
         model = Tarefa
         fields = ['nome_tarefa', 'dia', 'descricao', 'categoria', 'status']
