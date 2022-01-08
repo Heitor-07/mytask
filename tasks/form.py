@@ -7,14 +7,14 @@ from django.contrib.auth.forms import UserCreationForm
 
 class TarefaForm(ModelForm):
 
-    dia = forms.DateField(
-        label='Data',
-        widget=forms.DateInput(
-            format='%Y-%m-%d',
+    dia = forms.DateTimeField(
+        label='Data/Hora',
+        widget=forms.DateTimeInput(
+            format='%Y-%m-%dT%H:%M',
             attrs={
-                'type': 'date',
+                'type': 'datetime-local',
             }),
-        input_formats=('%Y-%m-%d',),
+        input_formats=('%Y-%m-%dT%H:%M',),
     )
 
     class Meta:
