@@ -27,4 +27,4 @@ class UsuarioForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['first_name', 'username', 'email']

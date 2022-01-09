@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +26,7 @@ SECRET_KEY = 'django-insecure-(%so^j$55c=$ix2qz_laq4)muy&idp_a4ob6&%a=r&0$&d!ha7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Enquanto estiver em produção, True, depois de pronto False
-DEBUG = True
+DEBUG = False
 
 # Enquanto Debug estiver True, fica vazio, depois o endereço do site.
 ALLOWED_HOSTS = ['*']
@@ -42,6 +45,10 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [  # Faz verificões especificas sobre sobre as requisições para o servidor
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +135,8 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
-
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 
