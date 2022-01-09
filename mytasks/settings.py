@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(%so^j$55c=$ix2qz_laq4)muy&idp_a4ob6&%a=r&0$&d!ha7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Enquanto estiver em produção, True, depois de pronto False
-DEBUG = True
+DEBUG = False
 
 # Enquanto Debug estiver True, fica vazio, depois o endereço do site.
 ALLOWED_HOSTS = ['*']
