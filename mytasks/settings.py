@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(%so^j$55c=$ix2qz_laq4)muy&idp_a4ob6&%a=r&0$&d!ha7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Enquanto estiver em produção, True, depois de pronto False
-DEBUG = False
+DEBUG = True
 
 # Enquanto Debug estiver True, fica vazio, depois o endereço do site.
 ALLOWED_HOSTS = ['*']
@@ -120,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'mytasks/tasks/static/'  # Arquivos staticos como css, javascripts e etc.
+STATIC_URL = '/static/'  # Arquivos staticos como css, javascripts e etc.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Usando durante a produção
 
 # Default primary key field type
