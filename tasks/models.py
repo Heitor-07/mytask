@@ -7,8 +7,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 
 
+STATUS_CHOICES = (
+    ("Casa", "Casa"),
+    ("Trabalho", "Trabalho"),
+    ("Escola", "Escola"),
+    ("Contas", "Contas"),
+)
+
+
 class Categoria(models.Model):
-    categoria = models.CharField('Categoria', max_length=50)
+    categoria = models.CharField('Categoria', choices=STATUS_CHOICES)
 
     def __str__(self):
         return self.categoria
