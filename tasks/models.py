@@ -16,7 +16,7 @@ CATEGORIA_CHOICES = (
 
 
 class Categoria(models.Model):
-    categoria = models.CharField('Categoria', max_length=30, choices=CATEGORIA_CHOICES)
+    categoria = models.CharField('Categoria', max_length=50, choices=CATEGORIA_CHOICES)
 
     def __str__(self):
         return self.categoria

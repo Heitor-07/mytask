@@ -52,11 +52,11 @@
                   </div>
                     <div>
                     {% if user.is_authenticated %}
-                        <p class="display-5 text-capitalize">Bem-vindo, {{ user.username }}</p>
+                        <p class="display-5 text-capitalize">Bem-vindo, {{ user.first_name }}</p>
                     {% else %}
                         <p>Welcome, new user. Please log in.</p>
                     {% endif %}
-                </div>
+                    </div>
                 </nav>
                 <br>
             </div>
