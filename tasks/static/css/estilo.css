@@ -6,13 +6,14 @@ a {
     font-size: 50px !important;
 }
 
-.divForm {
-    width: 30% !important;
-    height: 400px !important;
-}
+
 
 .formulario {
    margin-top: 80px;
+}
+
+.loginForm li {
+   width: 200px !important;
 }
 
 @media only screen and (min-width: 600px) {
@@ -23,6 +24,7 @@ a {
   .divForm {
     width: 100% !important;
   }
+
 
 }
 

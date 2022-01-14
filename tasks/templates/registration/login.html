@@ -30,11 +30,11 @@
                 <a href="#" class="logo"><span class="text-secondary">My</span>Task</a>
             </nav>
             <hr>
-            <div class="d-flex justify-content-center divForm">
-                <form class="formulario mb-4" method="post">
+            <div class="divForm d-flex justify-content-center">
+                <form class="form-horizontal w-50" method="post">
                         {% csrf_token %}
-                        {{ form|crispy }}
-                    <div class="d-flex justify-content-center">
+                      {{ form|crispy }}
+                    <div>
                     <button type="submit" class="btn btn-secondary mt-3 mb-3 mr-3">Entrar</button>
                        <a href="{% url 'cadastro' %}" class="btn btn-primary mt-3 mb-3">Cadastrar</a>
                     </div>

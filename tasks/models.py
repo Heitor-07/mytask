@@ -31,7 +31,7 @@ STATUS_CHOICES = (
 
 class Tarefa(models.Model, LoginRequiredMixin, CreateView):
     nome_tarefa = models.CharField('Tarefa', max_length=100)
-    dia = models.DateField('Dia')
+    dia = models.DateTimeField('Dia')
     descricao = models.TextField('Descrição', max_length=500)
     categoria = models.ForeignKey(Categoria, null=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="Pendente")
