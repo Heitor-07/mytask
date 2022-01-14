@@ -24,22 +24,23 @@
 
     <title>Login</title>
 </head>
-<body class="d-flex justify-content-center align-items-center">
-        <div class="container bg-light">
+<body>
+        <div class="container mt-4 bg-light">
             <nav class="menu d-flex justify-content-between align-items-center bg-light p-3 rounded">
                 <a href="#" class="logo"><span class="text-secondary">My</span>Task</a>
             </nav>
             <hr>
-            <div class="divForm d-flex justify-content-center">
-                <form class="form-horizontal w-50" method="post">
+            <div class="divForm d-flex justify-content-center" style="margin-top: 40px">
+                <form class="w-50" method="post">
                         {% csrf_token %}
                       {{ form|crispy }}
                     <div>
-                    <button type="submit" class="btn btn-secondary mt-3 mb-3 mr-3">Entrar</button>
-                       <a href="{% url 'cadastro' %}" class="btn btn-primary mt-3 mb-3">Cadastrar</a>
+                    <button type="submit" class="btn btn-secondary mt-3 mr-3">Entrar</button>
+                       <a href="{% url 'cadastro' %}" class="btn btn-primary mt-3">Cadastrar</a>
                     </div>
                 </form>
             </div>
+            <footer class="d-flex justify-content-center text-primary"><strong>Criado por Heitor</strong></footer>
         </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -38,9 +39,7 @@
              <form method="post" class="w-50 table table-borderless">
 
                 {% csrf_token %}
-                <table>
-                {{ tarefa.as_table }}
-                </table>
+                {{ tarefa|crispy }}
 
                 <a type="submit" class="btn btn-primary mt-3 mb-3" href="{% url 'home' %}">Voltar</a>
                 <button type="submit" class="btn btn-secondary mt-3 mb-3" onclick="alteracao()">Salvar alteração</button>
